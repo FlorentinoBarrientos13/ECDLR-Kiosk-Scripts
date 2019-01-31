@@ -1,5 +1,4 @@
-import os
-import csv
+import os, csv
 
 
 def main():
@@ -53,13 +52,15 @@ def format_array(array_file):
                             new_row.append('Yes')
                         else:
                             new_row.append('No')
+                    elif j == 43 or j == 44:
+                        reason_string += array_file[i][j]
 
 
                     else:
                         new_row.append(array_file[i][j])
 
+        new_row.append(reason_string)
         new_csv.append(new_row)
-        new_csv.append(reason_string)
         reason_string = ""
         new_row = []
 
