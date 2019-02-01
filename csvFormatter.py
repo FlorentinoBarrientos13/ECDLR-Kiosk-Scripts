@@ -2,7 +2,9 @@ import os,csv
 
 ## inits the program
 def main():
-    filename = input("Enter file name")
+    print ("Files in this folder\n")
+    print (os.listdir(os.getcwd()))
+    filename = input("Enter file name\n")
     read_and_create_new_csv(filename)
     print("File made. Check the folder name formatted for your new file")
 
@@ -14,7 +16,7 @@ def read_and_create_new_csv(filename):
     csv_file = csv.reader(file)
     array_file = list(csv_file)
     new_csv = format_array(array_file)
-    new_csv_file = open(os.path.join('formatted', filename), 'w', newline='')
+    new_csv_file = open(os.path.join('KioskSignInsFormatted', filename), 'w', newline='')
     writer = csv.writer(new_csv_file)
 
     for row in new_csv:
