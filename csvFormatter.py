@@ -42,7 +42,7 @@ def format_array(array_file):
                     elif j == 14:
                         new_row.append(academic_level(array_file[i][j]))
                     
-                    elif 18 < j < 43:
+                    elif 16 < j < 43:
                         if array_file[i][j] == '1':
                             reason_string += array_file[0][j]
 
@@ -50,8 +50,10 @@ def format_array(array_file):
                         
                         if array_file[i][j] == '1':
                             new_row.append('Yes')
-                        else:
+                        elif array_file[i][j] == '2':
                             new_row.append('No')
+                        else:
+                            new_row.append(' ')
                     elif j == 43 or j == 44:
                         reason_string += array_file[i][j]
 
@@ -69,22 +71,22 @@ def format_array(array_file):
 
 def academic_level(array_item):
     switcher = {
-        1: "Freshman",
-        2: "Sophmore",
-        3: "Junior",
-        4: "Senior",
-        5: "Graduate/Professional",
-        6: "Non-Degree",
-        7: "Faculty/Staff"
+        '1': "Freshman",
+        '2': "Sophmore",
+        '3': "Junior",
+        '4': "Senior",
+        '5': "Graduate/Professional",
+        '6': "Non-Degree",
+        '7': "Faculty/Staff"
     }
     return switcher.get(array_item," ")
 
 
 def non_student(array_item):
     switcher = {
-        1: "High School",
-        2: "Transfer",
-        3: "Communty Member"
+        '1': "High School",
+        '2': "Transfer",
+        '3': "Communty Member"
 
     }
     return switcher.get(array_item," ")
