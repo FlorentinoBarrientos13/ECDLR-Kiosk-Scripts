@@ -1,4 +1,5 @@
-import os, csv
+import os
+import csv
 
 
 def main():
@@ -41,13 +42,13 @@ def format_array(array_file):
 
                     elif j == 14:
                         new_row.append(academic_level(array_file[i][j]))
-                    
+
                     elif 16 < j < 43:
                         if array_file[i][j] == '1':
                             reason_string += array_file[0][j]
 
                     elif j in boolean_cols:
-                        
+
                         if array_file[i][j] == '1':
                             new_row.append('Yes')
                         elif array_file[i][j] == '2':
@@ -57,9 +58,14 @@ def format_array(array_file):
                     elif j == 43 or j == 44:
                         reason_string += array_file[i][j]
 
-
                     else:
                         new_row.append(array_file[i][j])
+            else:
+                if j < 17:
+                    if not j in col_delimiter:
+                        new_row.append(array_file[i][j])
+                elif j == 17:
+                    new_row.append("Reason")
 
         new_row.append(reason_string)
         new_csv.append(new_row)
@@ -79,7 +85,7 @@ def academic_level(array_item):
         '6': "Non-Degree",
         '7': "Faculty/Staff"
     }
-    return switcher.get(array_item," ")
+    return switcher.get(array_item, " ")
 
 
 def non_student(array_item):
@@ -89,7 +95,7 @@ def non_student(array_item):
         '3': "Communty Member"
 
     }
-    return switcher.get(array_item," ")
+    return switcher.get(array_item, " ")
 
 
 if __name__ == "__main__":
