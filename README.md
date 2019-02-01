@@ -1,5 +1,5 @@
 # ECDLR_CSV_formatter
-Formats Kiosk sign ins to be merged easily with written sign-ins for El Centro de la Raza for the current version of the kiosk survey as of 1.31.2019. 
+Python script that formats Kiosk sign ins to be merged easily with written sign-ins for El Centro de la Raza for the current version of the kiosk survey as of 1.31.2019. 
 
 
 # How to use
