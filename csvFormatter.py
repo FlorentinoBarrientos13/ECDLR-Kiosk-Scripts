@@ -49,8 +49,18 @@ def format_array(array_file):
                         new_row.append(academic_level(array_file[i][j]))
                     #collect students reasons for visiting
                     elif 16 < j < 43:
+                        #collects the other main reason for 
+                        if  j == 34 and len(array_file[i][34]) > 0:
+                             reason_string += " "
+                             reason_string += array_file[i][j]
+                        # if they are meeting with an ssl find who theyre meeting with
+                        if j == 42 and len(array_file[i][42]) > 0:
+                             reason_string += " "
+                             reason_string += array_file[i][j]
+
                         if array_file[i][j] == '1':
                             reason_string += array_file[0][j]
+                            reason_string += " "
                     #format the yes/no questions
                     elif j in boolean_cols:
 
@@ -60,8 +70,13 @@ def format_array(array_file):
                             new_row.append('No')
                         else:
                             new_row.append(' ')
-                    elif j == 43 or j == 44:
+                    #attach everything else
+                    elif 42 < j < 45:
+                        reason_string += " "
                         reason_string += array_file[i][j]
+                      
+                        
+
 
                     else:
                         new_row.append(array_file[i][j])
@@ -73,7 +88,8 @@ def format_array(array_file):
                 elif j == 17:
                     new_row.append("Reason")
         #creates 2d array containing the new rows
-        new_row.append(reason_string)
+        reason = reason_string.replace(":", " ")
+        new_row.append(reason)
         new_csv.append(new_row)
         #reset the strings and rows for the upcoming row
         reason_string = ""
