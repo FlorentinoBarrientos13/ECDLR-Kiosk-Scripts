@@ -12,7 +12,7 @@ def main():
   #Check whether the student chose yes to signup for the listserv
     for rows in range(row):
         if len(arr[rows][listServ_col]) > 0 and arr[rows][listServ_col + 1] == '1' :
-            serv.write(arr[rows][listServ_col] + "\n")
+            serv.write(arr[rows][listServ_col] + ",")
     serv.close()
 
 if __name__ == "__main__":
