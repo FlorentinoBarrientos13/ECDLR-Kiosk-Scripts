@@ -9,3 +9,6 @@ Open your terminal and type py csvFormatter.py and the prompt will appear to ent
 After it is done formatting, check the new directory named "KioskSignInsFormatted" to find your formatted csv file
 
 The same process to the Listserv.py script. A new txt file will appear in the directory containing the emails of students who would want to join the listserv
+
+#listserv.py
+First batch done as of 3.6.2019
