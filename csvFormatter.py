@@ -41,8 +41,12 @@ def format_array(array_file):
             #if its not the header, do not format it
             if i > 0:
                 if not j in col_delimiter:
+
+                    if j == 1:
+                        new_row.append(format_time(array_file[i][j]))
+
                     #format the non_student entries
-                    if j == 13:
+                    elif j == 13:
                         new_row.append(non_student(array_file[i][j]))
                     #format the academic level of the students
                     elif j == 14:
@@ -96,6 +100,15 @@ def format_array(array_file):
         new_row = []
 
     return new_csv
+
+
+def format_time(time):
+    x =time[:10].replace('.' , '/')
+    month_day = x[5:]
+    year = x[:4]
+    new_date = month_day + "/" + year 
+    return new_date
+
 
 #formats the given acadamic lvl of a student
 def academic_level(array_item):
