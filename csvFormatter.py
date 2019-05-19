@@ -128,7 +128,7 @@ def non_student(array_item):
     switcher = {
         '1': "High School",
         '2': "Transfer",
-        '3': "Communty Member"
+        '3': "Community Member"
 
     }
     return switcher.get(array_item, " ")
